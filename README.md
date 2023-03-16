@@ -8,3 +8,4 @@ in this project, I am Trying to Explain CRUD Operation
     pip install -r requirements.txt
     python manage.py runserver 
 
+<img src="https://pasteboard.co/sNkApONqI3Xk.png"/>
