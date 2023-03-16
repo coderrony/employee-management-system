@@ -7,5 +7,5 @@ in this project, I am Trying to Explain CRUD Operation
     env\Scripts\activate
     pip install -r requirements.txt
     python manage.py runserver 
+<img src="https://pasteboard.co/sNkApONqI3Xk.png" width="600" height="300">
 
-<img src="https://pasteboard.co/sNkApONqI3Xk.png"/>
