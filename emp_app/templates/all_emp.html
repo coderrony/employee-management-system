@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>All Emplayee</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Hire Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for em in emps %}
+            <tr>
+                <th>{{em.id}}</th>
+                <td>{{em.first_name}} {{em.last_name}}</td>
+                <td>{{em.dept}}</td>
+                <td>{{em.role}}</td>
+                <td>{{em.salary}}</td>
+                <td>{{em.bonus}}</td>
+                <td>{{em.phone}}</td>
+                <td>{{em.hire_date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

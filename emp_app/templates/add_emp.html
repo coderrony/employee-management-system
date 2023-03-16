@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Add An Employee</h1>
+    <form action="{% url 'add_emp' %}" method='POST'> {% csrf_token %}
+
+        <label for="first_name" class="form-label">First Name</label> <br>
+        <input type="text" class="form-control" placeholder="First Name" Id="first_name" value="{{first_name}}"
+            name="first_name" required><br>
+
+        <label for="last_name" class="form-label">Last Name</label> <br>
+        <input type="text" class="form-control" placeholder="last Name" Id="last_name" value="{{last_name}}"
+            name="last_name" required><br>
+
+        <label for="salary" class="form-label">Salary</label> <br>
+        <input type="number" class="form-control" placeholder="Salary" Id="salary" value="{{salary}}" name="salary"
+            required><br>
+
+        {% comment %} <label for="department" class="form-label">Department</label> <br>
+        <input type="number" class="form-control" placeholder="Department" Id="dept" value="{{dept}}" name="dept"><br>
+        {% endcomment %}
+
+        <label for="#" class="form-label">Select Department</label> <br>
+        <select name="dept" class="form-select mb-2" required>
+            {% for i in all_dept %}
+            <option value="{{i.id}}">{{i}} </option>
+            {% endfor %}
+        </select>
+
+
+
+        {% comment %} <label for=" role" class="form-label mt-1">Role</label> <br>
+        <input type="number" class="form-control" placeholder="Role" Id="role" value="{{role}}" name="role"><br>
+        {% endcomment %}
+
+
+        <label for="#" class="form-label">Select Role</label> <br>
+        <select name="role" class="form-select mb-2" required>
+            {% for r in all_role %}
+            <option value="{{r.id}}">{{r}} </option>
+            {% endfor %}
+        </select>
+
+        <label for="bonus" class="form-label">Bonus</label> <br>
+        <input type="number" class="form-control mb-1" placeholder="Bonus" Id="bonus" value="{{bonus}}" name="bonus"
+            required><br>
+
+        <label for="phone" class="form-label">Phone</label> <br>
+        <input type="number" class="form-control mb-1" placeholder="Phone" name="phone" required><br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+{% endblock content %}
