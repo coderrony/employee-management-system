@@ -5,7 +5,6 @@ in this project, I am Trying to Explain CRUD Operation
     pip install virtualenv 
     python -m venv env
     env\Scripts\activate
-    cd Final-Project
     pip install -r requirements.txt
     python manage.py runserver 
 
