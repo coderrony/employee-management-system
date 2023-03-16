@@ -2,6 +2,36 @@
 
 {% block content %}
 <div class="container">
-    <h1>Remove Employee</h1>
+    <h1>Remove Emplayee</h1>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Full Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Phone</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for em in emps %}
+            <tr>
+
+                <td>{{em.first_name}} {{em.last_name}}</td>
+                <td>{{em.dept}}</td>
+                <td>{{em.role}}</td>
+                <td>{{em.salary}}</td>
+                <td>{{em.bonus}}</td>
+                <td>{{em.phone}}</td>
+                <td><a href="{% url 'remove_single_emp' em.id %}"><button type="button"
+                            class="btn btn-danger ">remove</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock content %}

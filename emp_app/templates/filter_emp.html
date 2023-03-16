@@ -2,6 +2,65 @@
 
 {% block content %}
 <div class="container">
-    <h1>Filter Employee</h1>
+    <h1>Choose Any Fields to Filter Employee</h1>
+    <form action="{% url 'filter_emp' %}" method='POST'> {% csrf_token %}
+
+        <label for="first_name" class="form-label"> Name</label> <br>
+        <input type="text" class="form-control" placeholder=" Name" name="name"><br>
+
+
+
+        <label for="#" class="form-label">Select Department</label> <br>
+        <select name="dept" class="form-select mb-2">
+            <option value="{{0}}"> Select Department</option>
+            {% for i in all_dept %}
+            <option value="{{i.id}}">{{i}} </option>
+            {% endfor %}
+        </select>
+
+
+
+        <label for="#" class="form-label">Select Role</label> <br>
+        <select name="role" class="form-select mb-2">
+            <option value="{{0}}"> Select Role</option>
+            {% for r in all_role %}
+            <option value="{{r.id}}">{{r}} </option>
+            {% endfor %}
+        </select>
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if emps %}
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Full Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Bonus</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Hire Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for em in emps %}
+            <tr>
+
+                <td>{{em.first_name}} {{em.last_name}}</td>
+                <td>{{em.dept}}</td>
+                <td>{{em.role}}</td>
+                <td>{{em.salary}}</td>
+                <td>{{em.bonus}}</td>
+                <td>{{em.phone}}</td>
+                <td>{{em.hire_date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
 </div>
 {% endblock content %}
